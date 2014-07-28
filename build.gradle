@@ -1,0 +1,19 @@
+subprojects {
+    buildscript {
+
+        ext._compileSdkVersion = 19
+        ext._buildToolsVersion = "19.1.0"
+        ext._minSdkVersion = 15
+        ext._targetSdkVersion = 19
+        ext._sourceCompatibility = JavaVersion.VERSION_1_6
+        ext._targetCompatibility = JavaVersion.VERSION_1_6
+
+        repositories {
+            mavenCentral()
+        }
+
+        dependencies {
+            classpath 'com.android.tools.build:gradle:0.12.+'
+        }
+    }
+}
