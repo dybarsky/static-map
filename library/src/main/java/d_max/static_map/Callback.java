@@ -9,6 +9,9 @@ import android.graphics.Bitmap;
  */
 public interface Callback {
 
+    int WRONG_URL = 1;
+    int NETWORK_ERROR = 2;
+
     void onMapGenerated(Bitmap mapImage);
 
     void onFailed(int errorCode);

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="charset">UTF-8</string>
     <string name="http">http://</string>
     <string name="https">https://</string>
     <string name="url">maps.googleapis.com/maps/api/staticmap</string>
     <string name="center">center=%1$f,%2$f</string>
-    <string name="zoom">zoom=%1$f</string>
-    <string name="size">size=%1$fx%2$f</string>
+    <string name="zoom">zoom=%1$d</string>
+    <string name="size">size=%1$dx%2$d</string>
     <string name="type">maptype=%1$s</string>
 </resources>
