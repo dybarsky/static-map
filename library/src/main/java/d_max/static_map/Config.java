@@ -26,7 +26,6 @@ public class Config {
     private float centerLatitude = DEFAULT_LATITUDE;
     private float centerLongitude = DEFAULT_LONGITUDE;
 
-    Config() {}
 
     String buildUrl(Context context) {
         StringBuilder urlBuilder = new StringBuilder();
