@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="d_max.static_map">
-    <application/>
+<manifest
+    package="d_max.static_map.sample"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application>
+        <activity android:name=".Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>
