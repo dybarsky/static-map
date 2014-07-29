@@ -68,7 +68,6 @@ public class StaticMap {
     //~
 
     private static Bitmap loadBitmap(String url) throws MalformedURLException, IOException {
-
         InputStream stream = new URL(url).openStream();
         Bitmap result = BitmapFactory.decodeStream(stream);
         stream.close();
