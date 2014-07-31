@@ -9,4 +9,8 @@
     <string name="size">size=%1$dx%2$d</string>
     <string name="scale">scale=%1$d</string>
     <string name="type">maptype=%1$s</string>
+    <string name="markerDef">markers=</string>
+    <string name="markerColor">color:%1$s</string>
+    <string name="markerSize">size:%1$s</string>
+    <string name="markerLabel">label:%1$s</string>
 </resources>

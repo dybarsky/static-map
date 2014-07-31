@@ -11,10 +11,14 @@ import d_max.static_map.Config;
  */
 public abstract class Segment {
 
+    char SEPARATOR_QUERY = '?';
+    char SEPARATOR_ARGS = '&';
+    char SEPARATOR_MARKER = '|';
+
     public abstract void append(Config config, StringBuilder urlBuilder, Context context);
 
     void appendWithSeparator(StringBuilder str, String data) {
-        str.append('&').append(data);
+        str.append(SEPARATOR_ARGS).append(data);
     }
 
 }

@@ -20,7 +20,7 @@ public class BasicSegment extends Segment {
     public void append(Config config, StringBuilder urlBuilder, Context context) {
         urlBuilder.append(context.getString(config.isSecure() ? https : http))
                   .append(context.getString(url))
-                  .append('?')
+                  .append(SEPARATOR_QUERY)
                   .append(context.getString(size, config.getWidth(), config.getHeight()));
     }
 }

@@ -17,14 +17,16 @@ public class PositionSegment extends Segment {
 
     @Override
     public void append(Config config, StringBuilder urlBuilder, Context context) {
-        if (!config.getMarkers().isEmpty()) return;
+        if (config.getMarkers().length == 0) {
+            String targetAddress = config.getAddress();
+            appendWithSeparator(urlBuilder, targetAddress != null
+                    ? context.getString(address, targetAddress)
+                    : context.getString(position, config.getCenterLatitude(), config.getCenterLongitude()));
+        }
 
-        String targetAddress = config.getAddress();
-        appendWithSeparator(urlBuilder, targetAddress != null
-                ? context.getString(address, targetAddress)
-                : context.getString(position, config.getCenterLatitude(), config.getCenterLongitude()));
-
-        appendWithSeparator(urlBuilder, context.getString(zoom, config.getZoom()));
+        if (config.getZoom() != -1) {
+            appendWithSeparator(urlBuilder, context.getString(zoom, config.getZoom()));
+        }
     }
 }
 

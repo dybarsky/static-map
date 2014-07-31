@@ -1,11 +1,7 @@
 package d_max.static_map;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static d_max.static_map.R.string.*;
 
 /**
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
@@ -14,11 +10,15 @@ import static d_max.static_map.R.string.*;
  */
 public class Config {
 
-    private static final int DEFAULT_ZOOM = 5;
-    private static final int DEFAULT_WIDTH = 400;
-    private static final int DEFAULT_HEIGHT = 300;
-    private static final float DEFAULT_LATITUDE = 50.4020355f;
-    private static final float DEFAULT_LONGITUDE = 30.5326905f;
+    static final int DEFAULT_ZOOM = -1;
+    static final int DEFAULT_WIDTH = 400;
+    static final int DEFAULT_HEIGHT = 300;
+    static final float DEFAULT_LATITUDE = 50.4020355f;
+    static final float DEFAULT_LONGITUDE = 30.5326905f;
+
+    public enum MapType {
+        roadmap, satellite, hybrid, terrain
+    }
 
     private MapType mapType;
     private boolean secure = false;
@@ -30,21 +30,6 @@ public class Config {
     private float centerLongitude = DEFAULT_LONGITUDE;
     private String address;
     private List<Marker> markers = new ArrayList<Marker>();
-
-    //~
-
-    public static class Marker {
-
-    }
-
-    public enum MapType {
-        roadmap,
-        satellite,
-        hybrid,
-        terrain
-    }
-
-    //~
 
     public Config setSecure(boolean secure) {
         this.secure = secure;
@@ -119,7 +104,13 @@ public class Config {
         return address;
     }
 
-    public List<Marker> getMarkers() {
-        return markers;
+    public Marker[] getMarkers() {
+        return markers.toArray(new Marker[0]);
+    }
+
+    public Marker addMarker() {
+        Marker marker = new Marker();
+        markers.add(marker);
+        return marker;
     }
 }
