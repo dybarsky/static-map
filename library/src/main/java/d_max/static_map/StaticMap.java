@@ -17,7 +17,7 @@ import d_max.static_map.builder.*;
 import static d_max.static_map.Callback.*;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/28/14
  * @time: 4:59 PM
  */

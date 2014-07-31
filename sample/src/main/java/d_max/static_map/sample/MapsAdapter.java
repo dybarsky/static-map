@@ -21,7 +21,7 @@ import d_max.static_map.StaticMap;
 import static android.widget.AbsListView.LayoutParams.MATCH_PARENT;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 11:51 AM
  */

@@ -9,7 +9,7 @@ import static d_max.static_map.R.string.position;
 import static d_max.static_map.R.string.zoom;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:26 PM
  */

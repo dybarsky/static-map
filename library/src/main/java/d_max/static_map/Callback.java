@@ -3,7 +3,7 @@ package d_max.static_map;
 import android.graphics.Bitmap;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/28/14
  * @time: 5:38 PM
  */

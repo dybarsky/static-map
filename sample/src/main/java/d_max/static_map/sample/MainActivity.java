@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/29/14
  * @time: 4:22 PM
  */

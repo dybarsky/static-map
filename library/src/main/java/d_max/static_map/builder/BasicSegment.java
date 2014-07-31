@@ -10,7 +10,7 @@ import static d_max.static_map.R.string.size;
 import static d_max.static_map.R.string.url;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:02 PM
  */

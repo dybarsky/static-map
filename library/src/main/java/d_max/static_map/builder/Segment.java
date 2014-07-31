@@ -5,7 +5,7 @@ import android.content.Context;
 import d_max.static_map.Config;
 
 /**
- * @user: Maxim Dybarsky | mdy@ciklum.com
+ * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 3:42 PM
  */
