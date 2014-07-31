@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
+
+import d_max.static_map.builder.*;
 
 import static d_max.static_map.Callback.*;
 
@@ -19,9 +23,18 @@ import static d_max.static_map.Callback.*;
  */
 public class StaticMap {
 
+    static List<Segment> segments = new LinkedList<Segment>();
+    static {
+        segments.add(new BasicSegment()); // first should be Basic
+        segments.add(new MapTypeSegment());
+        segments.add(new ScaleSegment());
+        segments.add(new MarkerSegment());
+        segments.add(new PositionSegment());
+    }
+
     public static Bitmap requestMapImage(Context context, Config config) {
         try {
-            return loadBitmap(config.buildUrl(context));
+            return loadBitmap(buildUrl(config, context));
         } catch (MalformedURLException e) {
             /* wrong url */
         } catch (IOException e) {
@@ -36,7 +49,7 @@ public class StaticMap {
             @Override
             protected Bitmap doInBackground(Config... config) {
                 try {
-                    String url = config[0].buildUrl(context);
+                    String url = buildUrl(config[0], context);
                     return loadBitmap(url);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -66,6 +79,16 @@ public class StaticMap {
     }
 
     //~
+
+    private static String buildUrl(Config config, Context context) {
+        StringBuilder urlBuilder = new StringBuilder();
+
+        for (Segment segment : segments) {
+            segment.append(config, urlBuilder, context);
+        }
+
+        return urlBuilder.toString();
+    }
 
     private static Bitmap loadBitmap(String url) throws MalformedURLException, IOException {
         InputStream stream = new URL(url).openStream();

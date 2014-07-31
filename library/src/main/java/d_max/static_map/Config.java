@@ -2,6 +2,9 @@ package d_max.static_map;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static d_max.static_map.R.string.*;
 
 /**
@@ -25,29 +28,14 @@ public class Config {
     private int height = DEFAULT_HEIGHT;
     private float centerLatitude = DEFAULT_LATITUDE;
     private float centerLongitude = DEFAULT_LONGITUDE;
-
-
-    String buildUrl(Context context) {
-        StringBuilder urlBuilder = new StringBuilder();
-        urlBuilder.append(context.getString(secure ? https : http))
-                  .append(context.getString(url))
-                  .append('?')
-                  .append(context.getString(center, centerLatitude, centerLongitude))
-                  .append('&')
-                  .append(context.getString(zoom, zoomRatio))
-                  .append('&')
-                  .append(context.getString(size, width, height));
-
-        if (mapType != null)
-            urlBuilder.append('&').append(context.getString(type, mapType.name()));
-
-        if (scaleRatio != 0)
-            urlBuilder.append('&').append(context.getString(scale, scaleRatio));
-
-        return urlBuilder.toString();
-    }
+    private String address;
+    private List<Marker> markers = new ArrayList<Marker>();
 
     //~
+
+    public static class Marker {
+
+    }
 
     public enum MapType {
         roadmap,
@@ -55,6 +43,8 @@ public class Config {
         hybrid,
         terrain
     }
+
+    //~
 
     public Config setSecure(boolean secure) {
         this.secure = secure;
@@ -86,5 +76,50 @@ public class Config {
     public Config setScale(int scaleRatio) {
         this.scaleRatio = scaleRatio;
         return this;
+    }
+
+    public Config setAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public MapType getMapType() {
+        return mapType;
+    }
+
+    public boolean isSecure() {
+        return secure;
+    }
+
+    public int getZoom() {
+        return zoomRatio;
+    }
+
+    public int getScale() {
+        return scaleRatio;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public float getCenterLatitude() {
+        return centerLatitude;
+    }
+
+    public float getCenterLongitude() {
+        return centerLongitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public List<Marker> getMarkers() {
+        return markers;
     }
 }

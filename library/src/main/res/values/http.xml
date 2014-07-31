@@ -3,7 +3,8 @@
     <string name="http">http://</string>
     <string name="https">https://</string>
     <string name="url">maps.googleapis.com/maps/api/staticmap</string>
-    <string name="center">center=%1$f,%2$f</string>
+    <string name="position">center=%1$f,%2$f</string>
+    <string name="address">center=%1$s</string>
     <string name="zoom">zoom=%1$d</string>
     <string name="size">size=%1$dx%2$d</string>
     <string name="scale">scale=%1$d</string>
