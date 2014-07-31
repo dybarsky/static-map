@@ -33,9 +33,10 @@ public class MapsAdapter extends BaseAdapter {
     private static final int MAP_SECURE = 1;
     private static final int MAP_ZOOM = 2;
     private static final int MAP_SIZE = 3;
-    private static final int MAP_SATELLITE = 4;
-    private static final int MAP_HYBRID = 5;
-    private static final int MAP_TERRIAN = 6;
+    private static final int MAP_SCALE= 4;
+    private static final int MAP_SATELLITE = 5;
+    private static final int MAP_HYBRID = 6;
+    private static final int MAP_TERRAIN = 7;
 
     private Context context;
     private Bitmap placeHolder;
@@ -91,6 +92,19 @@ public class MapsAdapter extends BaseAdapter {
     }
 
     private void loadMap(final int position, final ImageView view) {
+        Config config = new Config();
+        switch (position) {
+            case MAP_DEFAULT:   /* change nothing */                        break;
+            case MAP_SECURE:    config.setSecure(true);                     break;
+            case MAP_ZOOM:      config.setZoom(10);                         break;
+            case MAP_SIZE:      config.setImageSize(200, 200);              break;
+            case MAP_SCALE:     config.setImageSize(200, 200).setScale(2);  break;
+            case MAP_SATELLITE: config.setMapType(Config.MapType.satellite);break;
+            case MAP_HYBRID:    config.setMapType(Config.MapType.hybrid);   break;
+            case MAP_TERRAIN:   config.setMapType(Config.MapType.terrain);  break;
+            default:
+        }
+
         Callback callback = new Callback() {
             @Override
             public void onMapGenerated(Bitmap mapImage) {
@@ -107,31 +121,6 @@ public class MapsAdapter extends BaseAdapter {
             }
         };
 
-        switch (position) {
-            case MAP_DEFAULT: {
-                Config defaultConfig = new Config();
-                StaticMap.requestMapImage(context, defaultConfig, callback);
-                break;
-            }
-            case MAP_SECURE: {
-                Config config = new Config();
-                config.setSecure(true);
-                StaticMap.requestMapImage(context, config, callback);
-                break;
-            }
-            case MAP_ZOOM: {
-                Config config = new Config();
-                config.setZoom(10);
-                StaticMap.requestMapImage(context, config, callback);
-                break;
-            }
-            case MAP_SIZE: {
-                Config config = new Config();
-                config.setImageSize(200, 200);
-                StaticMap.requestMapImage(context, config, callback);
-                break;
-            }
-            default:
-        }
+        StaticMap.requestMapImage(context, config, callback);
     }
 }
