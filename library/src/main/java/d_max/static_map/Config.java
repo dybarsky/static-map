@@ -17,10 +17,10 @@ public class Config {
     private static final float DEFAULT_LATITUDE = 50.4020355f;
     private static final float DEFAULT_LONGITUDE = 30.5326905f;
 
-    private MapType type;
+    private MapType mapType;
     private boolean secure = false;
     private int zoomRatio = DEFAULT_ZOOM;
-    private int scale;
+    private int scaleRatio;
     private int width = DEFAULT_WIDTH;
     private int height = DEFAULT_HEIGHT;
     private float centerLatitude = DEFAULT_LATITUDE;
@@ -37,6 +37,12 @@ public class Config {
                   .append(context.getString(zoom, zoomRatio))
                   .append('&')
                   .append(context.getString(size, width, height));
+
+        if (mapType != null)
+            urlBuilder.append('&').append(context.getString(type, mapType.name()));
+
+        if (scaleRatio != 0)
+            urlBuilder.append('&').append(context.getString(scale, scaleRatio));
 
         return urlBuilder.toString();
     }
@@ -73,7 +79,12 @@ public class Config {
     }
 
     public Config setMapType(MapType type) {
-        this.type = type;
+        this.mapType = type;
+        return this;
+    }
+
+    public Config setScale(int scaleRatio) {
+        this.scaleRatio = scaleRatio;
         return this;
     }
 }

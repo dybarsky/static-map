@@ -6,5 +6,6 @@
     <string name="center">center=%1$f,%2$f</string>
     <string name="zoom">zoom=%1$d</string>
     <string name="size">size=%1$dx%2$d</string>
+    <string name="scale">scale=%1$d</string>
     <string name="type">maptype=%1$s</string>
 </resources>
