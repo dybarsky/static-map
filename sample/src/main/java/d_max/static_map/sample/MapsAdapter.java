@@ -28,7 +28,6 @@ import static android.widget.AbsListView.LayoutParams.MATCH_PARENT;
 public class MapsAdapter extends BaseAdapter {
 
     private static final int SIZE = 400; // px
-    private static final int COUNT = 9;
     private static final int MAP_DEFAULT = 0;
     private static final int MAP_SECURE = 1;
     private static final int MAP_ZOOM = 2;
@@ -38,6 +37,8 @@ public class MapsAdapter extends BaseAdapter {
     private static final int MAP_HYBRID = 6;
     private static final int MAP_TERRAIN = 7;
     private static final int MAP_ADDRESS = 8;
+    private static final int MAP_LOCATION = 9;
+    private static final int COUNT = 10;
 
     private Context context;
     private Bitmap placeHolder;
@@ -104,6 +105,7 @@ public class MapsAdapter extends BaseAdapter {
             case MAP_HYBRID:    config.setMapType(Config.MapType.hybrid);   break;
             case MAP_TERRAIN:   config.setMapType(Config.MapType.terrain);  break;
             case MAP_ADDRESS:   config.setAddress("Ukraine");               break;
+            case MAP_LOCATION:  config.setCenter(50, 0);                    break;
             default:
         }
 
