@@ -14,11 +14,11 @@ public abstract class Segment {
     char SEPARATOR_QUERY = '?';
     char SEPARATOR_ARGS = '&';
     char SEPARATOR_MARKER = '|';
+    char SEPARATOR_LOCATION = ',';
 
     public abstract void append(Config config, StringBuilder urlBuilder, Context context);
 
     void appendWithSeparator(StringBuilder str, String data) {
         str.append(SEPARATOR_ARGS).append(data);
     }
-
 }

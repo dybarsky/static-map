@@ -32,21 +32,21 @@ public class MarkerSegment extends Segment {
     private void appendMarker(Marker marker, StringBuilder urlBuilder, Context context) {
         String targetAddress = marker.getAddress();
 
-        if (marker.getColor() != null) urlBuilder
-                .append(context.getString(markerColor, marker.getColor()))
-                .append(SEPARATOR_MARKER);
-
-        if (marker.getSize() != null) urlBuilder
-                .append(context.getString(markerSize, marker.getSize().name()))
-                .append(SEPARATOR_MARKER);
-
-        if (marker.getLabel() != null) urlBuilder
-                .append(context.getString(markerLabel, marker.getLabel()))
-                .append(SEPARATOR_MARKER);
+        if (marker.getColor() != null) appendMarkerPath(urlBuilder, context, markerColor, marker.getColor());
+        if (marker.getLabel() != null) appendMarkerPath(urlBuilder, context, markerLabel, marker.getLabel());
+        if (marker.getSize() != null) appendMarkerPath(urlBuilder, context, markerSize, marker.getSize().name());
 
         urlBuilder.append(targetAddress != null
                 ? targetAddress
-                : marker.getLatitude() + "," + marker.getLongitude());
+                : createLocation(marker));
+    }
+
+    private String createLocation(Marker marker) {
+        return "" + marker.getLatitude() + SEPARATOR_LOCATION + marker.getLongitude();
+    }
+
+    private <T> void appendMarkerPath(StringBuilder urlBuilder, Context context, int resId, T data) {
+        urlBuilder.append(context.getString(resId, data)).append(SEPARATOR_MARKER);
     }
 }
 

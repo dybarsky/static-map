@@ -10,24 +10,18 @@ import java.util.List;
  */
 public class Config {
 
-    static final int DEFAULT_ZOOM = -1;
-    static final int DEFAULT_WIDTH = 400;
-    static final int DEFAULT_HEIGHT = 300;
-    static final float DEFAULT_LATITUDE = 50.4020355f;
-    static final float DEFAULT_LONGITUDE = 30.5326905f;
-
     public enum MapType {
         roadmap, satellite, hybrid, terrain
     }
 
     private MapType mapType;
     private boolean secure = false;
-    private int zoomRatio = DEFAULT_ZOOM;
+    private int zoomRatio = -1;
     private int scaleRatio;
-    private int width = DEFAULT_WIDTH;
-    private int height = DEFAULT_HEIGHT;
-    private float centerLatitude = DEFAULT_LATITUDE;
-    private float centerLongitude = DEFAULT_LONGITUDE;
+    private int width = -1;
+    private int height = -1;
+    private float centerLatitude = -1f;
+    private float centerLongitude = -1f;
     private String address;
     private List<Marker> markers = new ArrayList<Marker>();
 

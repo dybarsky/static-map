@@ -34,7 +34,7 @@ public class StaticMap {
 
     public static Bitmap requestMapImage(Context context, Config config) {
         try {
-            return loadBitmap(buildUrl(config, context));
+            return loadBitmap(buildUrl(check(config), context));
         } catch (MalformedURLException e) {
             /* wrong url */
         } catch (IOException e) {
@@ -47,9 +47,9 @@ public class StaticMap {
         AsyncTask<Config, Integer, Bitmap> loader = new AsyncTask<Config, Integer, Bitmap>() {
 
             @Override
-            protected Bitmap doInBackground(Config... config) {
+            protected Bitmap doInBackground(Config... configs) {
                 try {
-                    String url = buildUrl(config[0], context);
+                    String url = buildUrl(check(configs[0]), context);
                     return loadBitmap(url);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -95,5 +95,12 @@ public class StaticMap {
         Bitmap result = BitmapFactory.decodeStream(stream);
         stream.close();
         return result;
+    }
+
+    private static Config check(Config config) {
+        boolean noSize = config.getWidth() == -1 || config.getHeight() == -1;
+        if (noSize) throw new IllegalArgumentException("image size not set");
+
+        return config;
     }
 }
