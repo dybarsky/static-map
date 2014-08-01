@@ -14,7 +14,7 @@ import static d_max.static_map.R.string.url;
  * @date: 7/31/14
  * @time: 4:02 PM
  */
-public class BasicSegment extends Segment {
+public class HeadSegment extends Segment {
 
     @Override
     public void append(Config config, StringBuilder urlBuilder, Context context) {

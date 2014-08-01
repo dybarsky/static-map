@@ -11,15 +11,16 @@ public class Marker {
         tiny, mid, small
     }
 
-    private float latitude = Config.DEFAULT_LATITUDE;
-    private float longitude = Config.DEFAULT_LONGITUDE;
+    private float latitude = -1;
+    private float longitude = -1;
     private String address;
     private String label;
     private String color;
     private Size size;
 
     Marker() {
-        // to make user create Marker using Config.addMarker method
+        // use package-private scope for to force user
+        // to create Marker using Config.addMarker method
     }
 
     public void setLocation(float latitude, float longitude) {

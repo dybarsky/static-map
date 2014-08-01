@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class Config {
 
+    public static final Marker[] ARRAY_TEMPLATE = new Marker[0];
+
     public enum MapType {
         roadmap, satellite, hybrid, terrain
     }
@@ -99,7 +101,7 @@ public class Config {
     }
 
     public Marker[] getMarkers() {
-        return markers.toArray(new Marker[0]);
+        return markers.toArray(ARRAY_TEMPLATE);
     }
 
     public Marker addMarker() {

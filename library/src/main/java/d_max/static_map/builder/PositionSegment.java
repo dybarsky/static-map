@@ -18,6 +18,7 @@ public class PositionSegment extends Segment {
     @Override
     public void append(Config config, StringBuilder urlBuilder, Context context) {
         if (config.getMarkers().length == 0) {
+            // if no markers - use address or location
             String targetAddress = config.getAddress();
             appendWithSeparator(urlBuilder, targetAddress != null
                     ? context.getString(address, targetAddress)

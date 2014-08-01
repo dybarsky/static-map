@@ -25,7 +25,7 @@ public class StaticMap {
 
     static List<Segment> segments = new LinkedList<Segment>();
     static {
-        segments.add(new BasicSegment()); // first should be Basic
+        segments.add(new HeadSegment()); // must be first
         segments.add(new MapTypeSegment());
         segments.add(new ScaleSegment());
         segments.add(new MarkerSegment());
