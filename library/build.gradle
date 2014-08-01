@@ -34,3 +34,7 @@ task javadocPackage(dependsOn: javadocGenerate, type: Jar) {
     from tasks.javadocGenerate.destinationDir
 }
 
+task sourcePackage(type: Jar) {
+    archiveName = "${project.archivesBaseName}-sources.jar"
+    from android.sourceSets.main.java.srcDirs
+}
