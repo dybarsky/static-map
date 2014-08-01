@@ -7,6 +7,8 @@ android {
     defaultConfig {
         minSdkVersion _minSdkVersion
         targetSdkVersion _targetSdkVersion
+        versionCode _versionCode
+        versionName _versionName
     }
 
     compileOptions {
