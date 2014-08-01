@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Use this class to set map params and add markers.
+ * More details at <a href="https://developers.google.com/maps/documentation/staticmaps">
+ * https://developers.google.com/maps/documentation/staticmaps</a>
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/28/14
  * @time: 4:59 PM

@@ -1,6 +1,10 @@
 package d_max.static_map;
 
 /**
+ * Use this class to set map marker params.
+ * More details at <a href="https://developers.google.com/maps/documentation/staticmaps">
+ * https://developers.google.com/maps/documentation/staticmaps</a>
+ *
  * @user: Maxim Dybarsky | mdy@ciklum.com
  * @date: 7/31/14
  * @time: 6:26 PM

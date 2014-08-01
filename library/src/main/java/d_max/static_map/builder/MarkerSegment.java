@@ -11,6 +11,8 @@ import static d_max.static_map.R.string.markerLabel;
 import static d_max.static_map.R.string.markerSize;
 
 /**
+ * Class for append maps markers url segments.
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:13 PM

@@ -7,6 +7,8 @@ import d_max.static_map.Config;
 import static d_max.static_map.R.string.scale;
 
 /**
+ * Class for append maps scale param url segment.
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:13 PM

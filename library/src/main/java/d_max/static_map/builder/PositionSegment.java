@@ -9,6 +9,9 @@ import static d_max.static_map.R.string.position;
 import static d_max.static_map.R.string.zoom;
 
 /**
+ * Class for append maps zoom and center coordinates params url segments.
+ * Address or location (lat. & lng.) will be used for map center point.
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:26 PM

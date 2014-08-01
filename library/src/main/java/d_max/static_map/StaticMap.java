@@ -17,13 +17,17 @@ import d_max.static_map.builder.*;
 import static d_max.static_map.Callback.*;
 
 /**
+ * Provides map image. Uses google static maps api.
+ * https://developers.google.com/maps/documentation/staticmaps
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/28/14
  * @time: 4:59 PM
  */
 public class StaticMap {
 
-    static List<Segment> segments = new LinkedList<Segment>();
+    // URL segments builders
+    private static List<Segment> segments = new LinkedList<Segment>();
     static {
         segments.add(new HeadSegment()); // must be first
         segments.add(new MapTypeSegment());
@@ -32,6 +36,13 @@ public class StaticMap {
         segments.add(new PositionSegment());
     }
 
+    /**
+     * Use this method for <b>sync</b> map image loading.
+     *
+     * @param context context for get string url templates
+     * @param config set of map generation params
+     * @return map image or null if can't generate(load)
+     */
     public static Bitmap requestMapImage(Context context, Config config) {
         try {
             return loadBitmap(buildUrl(check(config), context));
@@ -43,6 +54,16 @@ public class StaticMap {
         return null;
     }
 
+    /**
+     * Use this method for <b>async</b> map image loading.
+     * Based on {@link android.os.AsyncTask}.
+     * Callback methods will be called in main thread
+     * (at {@link android.os.AsyncTask#onPostExecute(Object)} method).
+     *
+     * @param context context for get string url templates
+     * @param config set of map generation params
+     * @param callback class to receive result or error callbacks
+     */
     public static void requestMapImage(final Context context, Config config, final Callback callback) {
         AsyncTask<Config, Integer, Bitmap> loader = new AsyncTask<Config, Integer, Bitmap>() {
 
@@ -52,10 +73,8 @@ public class StaticMap {
                     String url = buildUrl(check(configs[0]), context);
                     return loadBitmap(url);
                 } catch (MalformedURLException e) {
-                    e.printStackTrace();
                     publishProgress(WRONG_URL);
                 } catch (IOException e) {
-                    e.printStackTrace();
                     publishProgress(NETWORK_ERROR);
                 }
                 return null;
@@ -72,7 +91,7 @@ public class StaticMap {
 
             @Override
             protected void onPostExecute(Bitmap bitmap) {
-                callback.onMapGenerated(bitmap);
+                if (bitmap != null) callback.onMapGenerated(bitmap);
             }
         };
         loader.execute(config);

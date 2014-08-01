@@ -10,6 +10,9 @@ import static d_max.static_map.R.string.size;
 import static d_max.static_map.R.string.url;
 
 /**
+ * Class for append url header. Head includes url scheme (http or https),
+ * google static map service address, map image size.
+ *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * @date: 7/31/14
  * @time: 4:02 PM
