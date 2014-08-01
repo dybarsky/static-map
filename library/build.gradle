@@ -16,3 +16,21 @@ android {
         targetCompatibility _targetCompatibility
     }
 }
+
+task javadocGenerate(type: Javadoc) {
+    // prints javadoc outputs when info logging level set
+    logging.captureStandardError LogLevel.INFO
+
+    description = "Generates javadoc"
+    source = android.sourceSets.main.java.srcDirs
+
+    classpath = files("${android.sdkDirectory}/platforms/android-${_compileSdkVersion}/android.jar")
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+}
+
+task javadocPackage(dependsOn: javadocGenerate, type: Jar) {
+    archiveName = "${project.archivesBaseName}-javadoc.jar"
+    from tasks.javadocGenerate.destinationDir
+}
+
