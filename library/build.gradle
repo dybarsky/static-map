@@ -1,4 +1,10 @@
+ext.ARTIFACT_ID = "static-map"
+
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+// configure android plugin
 
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
@@ -16,6 +22,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_6
     }
 }
+
+
+// tasks for packaging source and javadocs artifacts
 
 task javadocGenerate(type: Javadoc) {
     // prints javadoc outputs when info logging level set
@@ -43,3 +52,57 @@ task sourcePackage(type: Jar) {
     from android.sourceSets.main.java.srcDirs
 }
 
+//configure sign plugin
+
+artifacts {
+    archives javadocPackage, sourcePackage
+}
+
+signing {
+    sign configurations.archives
+}
+
+// configure maven plugin
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment {
+                MavenDeployment deployment -> signing.signPom(deployment)
+            }
+            repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: OSS_USERNAME, password: OSS_PASSWORD)
+            }
+            pom.project {
+                groupId "com.github.d-max"
+                artifactId = "static-map"
+                version VERSION_NAME
+                packaging "aar"
+                description "Static map image generator"
+                url "https://github.com/d-max/static-map"
+
+                scm {
+                    url "https://github.com/d-max/static-map"
+                    connection "scm:git@github.com:d-max/static-map.git"
+                    developerConnection "scm:git@github.com:d-max/static-map.git"
+                }
+
+                licenses {
+                    license {
+                        name "MIT License"
+                        url "http://www.opensource.org/licenses/mit-license.php"
+                        distribution "repo"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id "d-max"
+                        name "Maxim Dybarsky"
+                        email "maxim.dybarskyy@gmail.com"
+                    }
+                }
+            }
+        }
+    }
+}
