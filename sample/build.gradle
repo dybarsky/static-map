@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    maven { url "https://oss.sonatype.org/content/groups/public" }
+}
+
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
     buildToolsVersion BUILD_TOOLS_VERSION
@@ -18,5 +22,5 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    compile "com.github.d-max:static-map:0.1-SNAPSHOT@aar"
 }
