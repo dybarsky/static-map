@@ -1,17 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion _compileSdkVersion
-    buildToolsVersion _buildToolsVersion
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion _minSdkVersion
-        targetSdkVersion _targetSdkVersion
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName VERSION_NAME
     }
 
     compileOptions {
-        sourceCompatibility _sourceCompatibility
-        targetCompatibility _targetCompatibility
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
     }
 }
 

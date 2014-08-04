@@ -1,19 +1,19 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion _compileSdkVersion
-    buildToolsVersion _buildToolsVersion
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion _minSdkVersion
-        targetSdkVersion _targetSdkVersion
-        versionCode _versionCode
-        versionName _versionName
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName VERSION_NAME
     }
 
     compileOptions {
-        sourceCompatibility _sourceCompatibility
-        targetCompatibility _targetCompatibility
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
     }
 }
 
@@ -24,17 +24,22 @@ task javadocGenerate(type: Javadoc) {
     description = "Generates javadoc"
     source = android.sourceSets.main.java.srcDirs
 
-    classpath = files("${android.sdkDirectory}/platforms/android-${_compileSdkVersion}/android.jar")
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     exclude '**/BuildConfig.java'
     exclude '**/R.java'
 }
 
 task javadocPackage(dependsOn: javadocGenerate, type: Jar) {
-    archiveName = "${project.archivesBaseName}-javadoc.jar"
+    baseName = ARTIFACT_ID
+    classifier = "javadoc"
+    version VERSION_NAME
     from tasks.javadocGenerate.destinationDir
 }
 
 task sourcePackage(type: Jar) {
-    archiveName = "${project.archivesBaseName}-sources.jar"
+    baseName = ARTIFACT_ID
+    classifier = "sources"
+    version VERSION_NAME
     from android.sourceSets.main.java.srcDirs
 }
+
