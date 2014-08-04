@@ -70,7 +70,7 @@ uploadArchives {
             beforeDeployment {
                 MavenDeployment deployment -> signing.signPom(deployment)
             }
-            repository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
                 authentication(userName: OSS_USERNAME, password: OSS_PASSWORD)
             }
             pom.project {
@@ -78,6 +78,7 @@ uploadArchives {
                 artifactId = "static-map"
                 version VERSION_NAME
                 packaging "aar"
+                name "static map"
                 description "Static map image generator"
                 url "https://github.com/d-max/static-map"
 

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 repositories {
-    maven { url "https://oss.sonatype.org/content/groups/public" }
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
 }
 
 android {
@@ -22,5 +22,5 @@ android {
 }
 
 dependencies {
-    compile "com.github.d-max:static-map:0.1-SNAPSHOT@aar"
+    compile "com.github.d-max:static-map:0.1@aar"
 }
