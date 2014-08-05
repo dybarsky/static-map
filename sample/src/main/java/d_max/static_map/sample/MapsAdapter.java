@@ -196,7 +196,7 @@ public class MapsAdapter extends BaseAdapter {
             }
 
             @Override
-            public void onFailed(int errorCode) {
+            public void onFailed(int errorCode, String errorMessage) {
                 Toast.makeText(context,
                         errorCode == WRONG_URL ? "wrong url" : "can't load",
                         Toast.LENGTH_SHORT).show();
