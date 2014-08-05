@@ -64,8 +64,13 @@ signing {
 
 // configure maven plugin
 
-def snapshotRepo = "https://oss.sonatype.org/content/repositories/snapshots/"
-def stagingRepo = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+def getRepoUrl() {
+    if (VERSION_NAME.contains("SNAPSHOT")) {
+        return "https://oss.sonatype.org/content/repositories/snapshots/"
+    } else {
+        return "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+    }
+}
 
 uploadArchives {
     repositories {
@@ -73,7 +78,7 @@ uploadArchives {
             beforeDeployment {
                 MavenDeployment deployment -> signing.signPom(deployment)
             }
-            repository(url: stagingRepo) {
+            repository(url: getRepoUrl()) {
                 authentication(userName: OSS_USERNAME, password: OSS_PASSWORD)
             }
             pom.project {
