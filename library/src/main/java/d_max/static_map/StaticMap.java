@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Pair;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +13,15 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-import d_max.static_map.builder.*;
+import d_max.static_map.builder.HeadSegment;
+import d_max.static_map.builder.MapTypeSegment;
+import d_max.static_map.builder.MarkerSegment;
+import d_max.static_map.builder.PositionSegment;
+import d_max.static_map.builder.ScaleSegment;
+import d_max.static_map.builder.Segment;
 
-import static d_max.static_map.Callback.*;
+import static d_max.static_map.Callback.NETWORK_ERROR;
+import static d_max.static_map.Callback.WRONG_URL;
 
 /**
  * Provides map image. Uses google static maps api.
@@ -65,7 +72,8 @@ public class StaticMap {
      * @param callback class to receive result or error callbacks
      */
     public static void requestMapImage(final Context context, Config config, final Callback callback) {
-        AsyncTask<Config, Integer, Bitmap> loader = new AsyncTask<Config, Integer, Bitmap>() {
+        AsyncTask<Config, Pair<Integer, String>, Bitmap> loader =
+                new AsyncTask<Config, Pair<Integer, String>, Bitmap>() {
 
             @Override
             protected Bitmap doInBackground(Config... configs) {
@@ -73,19 +81,20 @@ public class StaticMap {
                     String url = buildUrl(check(configs[0]), context);
                     return loadBitmap(url);
                 } catch (MalformedURLException e) {
-                    publishProgress(WRONG_URL);
+                    publishProgress(new Pair(WRONG_URL, e.getMessage()));
                 } catch (IOException e) {
-                    publishProgress(NETWORK_ERROR);
+                    publishProgress(new Pair(NETWORK_ERROR, e.getMessage()));
                 }
                 return null;
             }
 
             @Override
-            protected void onProgressUpdate(Integer... values) {
-                int errorCode = values[0];
+            protected void onProgressUpdate(Pair<Integer, String>... values) {
+                int errorCode = values[0].first;
+                String errorMsg = values[0].second;
                 if (errorCode > 0) {
                     cancel(true);
-                    callback.onFailed(errorCode);
+                    callback.onFailed(errorCode, errorMsg);
                 }
             }
 
@@ -117,7 +126,7 @@ public class StaticMap {
     }
 
     private static Config check(Config config) {
-        boolean noSize = config.getWidth() == -1 || config.getHeight() == -1;
+        boolean noSize = config.getWidth() <= 0 || config.getHeight() <= 0;
         if (noSize) throw new IllegalArgumentException("image size not set");
 
         return config;

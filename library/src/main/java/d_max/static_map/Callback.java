@@ -25,6 +25,7 @@ public interface Callback {
     /**
      * This method will be invoked when map image can't be loaded.
      * @param errorCode code of loading error
+     * @param errorMessage message of exception
      */
-    void onFailed(int errorCode);
+    void onFailed(int errorCode, String errorMessage);
 }
