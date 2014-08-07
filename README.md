@@ -38,7 +38,8 @@ Callback callback = new Callback() {
 };
 StaticMap.requestMapImage(context, config, callback);
 ```
-Callback class methods will be invoked in main thread.
+This method encapsulates AsyncTask class to load image in background.
+**Note:** Callback class methods will be invoked in main thread.
 
 
 Developed By
