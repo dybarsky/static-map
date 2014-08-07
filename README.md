@@ -3,7 +3,7 @@ Static map
  
 This is standalone android library developed to generate static map images easily. It is based on [Google Static Maps API][4] and provides **sync** and **async** ways of bitmaps generation.
 
-Next feature are supported:
+Next features are supported:
 * Secure access (https)
 * Location (geo position, address)
 * Map types (roads, satellite, etc)
