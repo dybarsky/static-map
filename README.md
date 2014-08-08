@@ -24,6 +24,7 @@ dependencies {
     compile 'com.github.d-max:static-map:0.1+@aar'
 }
 ```
+Javadoc and sources package [classigiers][8] available too.
 
 Use [Config][5] class to set map generation basic params. Example:
 ```java
@@ -88,3 +89,4 @@ License
 [5]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/Config.java
 [6]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/StaticMap.java
 [7]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/Callback.java
+[8]: http://www.gradle.org/docs/current/userguide/dependency_management.html#sub:classifiers
