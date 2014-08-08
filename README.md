@@ -18,6 +18,13 @@ Usage
 =====
 
 Google Static Map API documentation is available [here][4]. Please, read it first if you are not familiar with service requirements and differences.
+Static-map library available in maven central repository. You can get it using:
+```groovy
+dependencies {
+    compile 'com.github.d-max:static-map:0.1+@aar'
+}
+```
+
 Use [Config][5] class to set map generation basic params. Example:
 ```java
 Config config = new Config();
