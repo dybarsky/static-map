@@ -35,7 +35,9 @@ config.setImageSize(200, 300)
 ```
 [StaticMap][6] class contais two static methods for map generation. To get map image *synchronously* use like this:
 ```java
-Bitmap mapImage = StaticMap.requestMapImage(context, config);
+try {
+    Bitmap mapImage = StaticMap.requestMapImage(context, config);
+} catch (StaticMapException ex) { /* log */ }
 ```
 To get map image *asynchronously*, use another method with [Callback][7] param:
 ```java
