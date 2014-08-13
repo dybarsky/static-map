@@ -48,17 +48,17 @@ public class StaticMap {
      *
      * @param context context for get string url templates
      * @param config set of map generation params
-     * @return map image or null if can't generate(load)
+     * @return map image or throw exception if can't generate(load)
+     * @throws StaticMapException wraps handled exception during url building or image loading
      */
-    public static Bitmap requestMapImage(Context context, Config config) {
+    public static Bitmap requestMapImage(Context context, Config config) throws StaticMapException {
         try {
             return loadBitmap(buildUrl(check(config), context));
         } catch (MalformedURLException e) {
-            /* wrong url */
+            throw new StaticMapException("Wrong url", e);
         } catch (IOException e) {
-            /* loading error */
+            throw new StaticMapException("Loading error", e);
         }
-        return null;
     }
 
     /**
