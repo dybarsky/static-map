@@ -1,14 +1,14 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
-import d_max.static_map.Marker;
+import dmax.staticmap.Config;
+import dmax.staticmap.Marker;
 
-import static d_max.static_map.R.string.markerColor;
-import static d_max.static_map.R.string.markerDef;
-import static d_max.static_map.R.string.markerLabel;
-import static d_max.static_map.R.string.markerSize;
+import static dmax.staticmap.R.string.markerColor;
+import static dmax.staticmap.R.string.markerDef;
+import static dmax.staticmap.R.string.markerLabel;
+import static dmax.staticmap.R.string.markerSize;
 
 /**
  * Class for append maps markers url segments.

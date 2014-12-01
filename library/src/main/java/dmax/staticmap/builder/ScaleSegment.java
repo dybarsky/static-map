@@ -1,10 +1,10 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
+import dmax.staticmap.Config;
 
-import static d_max.static_map.R.string.scale;
+import static dmax.staticmap.R.string.scale;
 
 /**
  * Class for append maps scale param url segment.

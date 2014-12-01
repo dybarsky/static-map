@@ -1,4 +1,4 @@
-package d_max.static_map.sample;
+package dmax.staticmap.sample;
 
 import android.app.Activity;
 import android.os.Bundle;

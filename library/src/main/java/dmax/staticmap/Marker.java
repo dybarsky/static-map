@@ -1,4 +1,4 @@
-package d_max.static_map;
+package dmax.staticmap;
 
 /**
  * Use this class to set map marker params.

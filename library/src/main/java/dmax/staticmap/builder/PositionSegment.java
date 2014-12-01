@@ -1,12 +1,12 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
+import dmax.staticmap.Config;
 
-import static d_max.static_map.R.string.address;
-import static d_max.static_map.R.string.position;
-import static d_max.static_map.R.string.zoom;
+import static dmax.staticmap.R.string.address;
+import static dmax.staticmap.R.string.position;
+import static dmax.staticmap.R.string.zoom;
 
 /**
  * Class for append maps zoom and center coordinates params url segments.

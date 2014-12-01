@@ -1,4 +1,4 @@
-package d_max.static_map;
+package dmax.staticmap;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,15 +13,16 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-import d_max.static_map.builder.HeadSegment;
-import d_max.static_map.builder.MapTypeSegment;
-import d_max.static_map.builder.MarkerSegment;
-import d_max.static_map.builder.PositionSegment;
-import d_max.static_map.builder.ScaleSegment;
-import d_max.static_map.builder.Segment;
+import dmax.staticmap.Callback;
+import dmax.staticmap.builder.HeadSegment;
+import dmax.staticmap.builder.MapTypeSegment;
+import dmax.staticmap.builder.MarkerSegment;
+import dmax.staticmap.builder.PositionSegment;
+import dmax.staticmap.builder.ScaleSegment;
+import dmax.staticmap.builder.Segment;
 
-import static d_max.static_map.Callback.NETWORK_ERROR;
-import static d_max.static_map.Callback.WRONG_URL;
+import static dmax.staticmap.Callback.NETWORK_ERROR;
+import static dmax.staticmap.Callback.WRONG_URL;
 
 /**
  * Provides map image. Uses google static maps api.
@@ -49,15 +50,15 @@ public class StaticMap {
      * @param context context for get string url templates
      * @param config set of map generation params
      * @return map image or throw exception if can't generate(load)
-     * @throws StaticMapException wraps handled exception during url building or image loading
+     * @throws dmax.staticmap.StaticMapException wraps handled exception during url building or image loading
      */
-    public static Bitmap requestMapImage(Context context, Config config) throws StaticMapException {
+    public static Bitmap requestMapImage(Context context, Config config) throws dmax.staticmap.StaticMapException {
         try {
             return loadBitmap(buildUrl(check(config), context));
         } catch (MalformedURLException e) {
-            throw new StaticMapException("Wrong url", e);
+            throw new dmax.staticmap.StaticMapException("Wrong url", e);
         } catch (IOException e) {
-            throw new StaticMapException("Loading error", e);
+            throw new dmax.staticmap.StaticMapException("Loading error", e);
         }
     }
 

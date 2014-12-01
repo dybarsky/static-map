@@ -1,4 +1,4 @@
-package d_max.static_map.sample;
+package dmax.staticmap.sample;
 
 import android.content.Context;
 import android.graphics.Bitmap;

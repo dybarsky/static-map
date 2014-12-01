@@ -1,10 +1,10 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
+import dmax.staticmap.Config;
 
-import static d_max.static_map.R.string.type;
+import static dmax.staticmap.R.string.type;
 
 /**
  * Class for append maps type param url segment.

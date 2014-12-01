@@ -1,4 +1,4 @@
-package d_max.static_map;
+package dmax.staticmap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Config {
 
-    public static final Marker[] ARRAY_TEMPLATE = new Marker[0];
+    public static final dmax.staticmap.Marker[] ARRAY_TEMPLATE = new dmax.staticmap.Marker[0];
 
     public enum MapType {
         roadmap, satellite, hybrid, terrain
@@ -29,7 +29,7 @@ public class Config {
     private float centerLatitude = -1f;
     private float centerLongitude = -1f;
     private String address;
-    private List<Marker> markers = new ArrayList<Marker>();
+    private List<dmax.staticmap.Marker> markers = new ArrayList<dmax.staticmap.Marker>();
 
     public Config setSecure(boolean secure) {
         this.secure = secure;
@@ -104,12 +104,12 @@ public class Config {
         return address;
     }
 
-    public Marker[] getMarkers() {
+    public dmax.staticmap.Marker[] getMarkers() {
         return markers.toArray(ARRAY_TEMPLATE);
     }
 
-    public Marker addMarker() {
-        Marker marker = new Marker();
+    public dmax.staticmap.Marker addMarker() {
+        dmax.staticmap.Marker marker = new dmax.staticmap.Marker();
         markers.add(marker);
         return marker;
     }

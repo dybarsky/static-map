@@ -1,13 +1,13 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
+import dmax.staticmap.Config;
 
-import static d_max.static_map.R.string.http;
-import static d_max.static_map.R.string.https;
-import static d_max.static_map.R.string.size;
-import static d_max.static_map.R.string.url;
+import static dmax.staticmap.R.string.http;
+import static dmax.staticmap.R.string.https;
+import static dmax.staticmap.R.string.size;
+import static dmax.staticmap.R.string.url;
 
 /**
  * Class for append url header. Head includes url scheme (http or https),

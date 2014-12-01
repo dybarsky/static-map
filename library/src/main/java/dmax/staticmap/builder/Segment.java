@@ -1,12 +1,12 @@
-package d_max.static_map.builder;
+package dmax.staticmap.builder;
 
 import android.content.Context;
 
-import d_max.static_map.Config;
+import dmax.staticmap.Config;
 
 /**
  * Class for building google static map service url.
- * {@link d_max.static_map.StaticMap StaticMap} class invokes set of Segment class inheritors
+ * {@link dmax.staticmap.StaticMap StaticMap} class invokes set of Segment class inheritors
  * one by one. Each inheritor appends its own part of url based on it's responsibility.
  *
  * @user: Maxim Dybarsky | maxim.dybarskyy@gmail.com
