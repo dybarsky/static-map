@@ -1,11 +1,11 @@
-Static map
-==========
+#Static map
 
 NOT SUPPORTED ANYMORE!
 
 Google made its own lite mode of google maps in play services v6.5
 https://developers.google.com/maps/documentation/android/lite
 
+==========
  
 This is standalone android library developed to generate static map images easily. It is based on [Google Static Maps API][4] and provides **sync** and **async** ways of bitmaps generation.
 
@@ -20,8 +20,7 @@ Next features are supported:
 ![Example Image2][2] ⠀
 ![Example Image3][3]
 
-Usage
-=====
+###Usage
 
 Google Static Map API documentation is available [here][4]. Please, read it first if you are not familiar with service requirements and differences.
 Static-map library available in maven central repository. You can get it using:
@@ -58,15 +57,11 @@ This method encapsulates AsyncTask class to load image in background.
 **Note:** Callback class methods will be invoked in main thread.
 
 
-Developed By
-============
+###Developed By
 
 Maxim Dybarsky - http://d-max.info
 
-
-
-License
-=======
+###License
 
 	The MIT License (MIT)
 	Copyright © 2014 Maxim Dybarsky
