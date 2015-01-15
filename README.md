@@ -94,7 +94,7 @@ License
 [2]: http://maps.google.com/maps/api/staticmap?size=200x200&center=50,0&zoom=3&maptype=satellite
 [3]: http://maps.google.com/maps/api/staticmap?size=200x200&center=50.4513,30.522&zoom=15&markers=color:blue%7C50.450866,30.522873
 [4]: https://developers.google.com/maps/documentation/staticmaps/
-[5]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/Config.java
-[6]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/StaticMap.java
-[7]: https://github.com/d-max/static-map/blob/master/library/src/main/java/d_max/static_map/Callback.java
+[5]: library/src/main/java/dmax/staticmap/Config.java
+[6]: library/src/main/java/dmax/staticmap/StaticMap.java
+[7]: library/src/main/java/dmax/staticmap/Callback.java
 [8]: http://www.gradle.org/docs/current/userguide/dependency_management.html#sub:classifiers
