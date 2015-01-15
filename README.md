@@ -1,5 +1,8 @@
 #Static map
 
+[![Maven](https://img.shields.io/badge/maven-0.1.3-brightgreen.svg)](http://search.maven.org/#artifactdetails%7Ccom.github.d-max%7Cstatic-map%7C0.1.3%7Caar)
+[![Blog Post](https://img.shields.io/badge/blog-post-yellow.svg)](http://dybarsky.blogspot.com/2014/08/static-map-library.html)
+
 NOT SUPPORTED ANYMORE!
 
 Google made its own lite mode of google maps in play services v6.5
