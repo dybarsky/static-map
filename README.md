@@ -62,7 +62,7 @@ This method encapsulates AsyncTask class to load image in background.
 
 ###Developed By
 
-Maxim Dybarsky - http://d-max.info
+Maksym Dybarskyi - http://d-max.info
 
 ###License
 
